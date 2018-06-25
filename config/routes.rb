@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'pessoa/index'
-  get 'pessoa/edit'
-  get 'pessoa/show'
-  get 'pessoa/new'
+  resources :contatos
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

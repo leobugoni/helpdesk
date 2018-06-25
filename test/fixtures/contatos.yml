@@ -2,6 +2,8 @@
 
 one:
   nome: MyString
+  telefone: MyString
 
 two:
   nome: MyString
+  telefone: MyString
