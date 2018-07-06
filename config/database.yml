@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: agenda
+  database: helpdesk
   username: root
   password: mysql
   socket: /var/run/mysqld/mysqld.sock
