@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 	resources :users
 	get 'sessions/new'
-
 	get 'contatos/index'
 	get 'contatos/edit'
-	get 'contatos/show'
+	get 'contatos/:id/show' => 'contatos#show'
 	get 'contatos/new'
 	post 'contatos/new' => 'contatos#create'
 	get    'sign_in'   => 'sessions#new'	

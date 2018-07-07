@@ -1,8 +1,36 @@
-<h3> Perfil de <%= @user.nome %> </h3>
-  <%= @user.email %>
-	<% if current_user == @user %>
-		<ul>
-			<li><%= link_to "Edit", edit_user_path(current_user) %></li>
-			<li><%= link_to "Delete", @user, method: :delete%></li>
-		</ul>
-  <%end%>
+<div class="container-fluid row">
+  <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <h2>Perfil de <%= @user.nome %></h2>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>  
+  </div>
+  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+  <div class="col-sm-4 col-md-4 col-lg-4">
+    <table class="table">
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Operações</th>
+      </tr>
+        <tr>
+          <td><%= @user.nome %></td>
+          <td><%= @user.email %></td>
+          <td>
+						<div class="member_action">
+							<% if current_user == @user %>
+              	<%= link_to "Edit", edit_user_path(@user), class: "btn btn-light"%>
+              	<%= link_to "Delete", @user, method: :delete, class: "btn btn-light"%>
+              <%end%>	
+            </div>
+          </td>
+        </tr>
+    </table>
+  </div>
+  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+</div>
+
+
+
+

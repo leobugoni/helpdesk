@@ -1,15 +1,30 @@
-<%= form_for :session, url: sign_in_path do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="container-fluid row">
+  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>  
+  <div class="col-sm-4 col-md-4 col-lg-4">
+    <%= form_for :session, url: sign_in_path do |f| %>
+    
+      <div class="field">
+        <div class="col-sm-12 col-md-12 col-lg-12 ">&nbsp;</div>
+        <%= f.label :email, class: "control-label" %><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>     
+      </div>
+      <div class="field">
+        <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+        <%= f.label :password, class: "control-label" %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control"  %>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+          <%= f.submit "Log in" , class: "btn btn-success"%>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 text-right">
+          <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div> 
   </div>
-  
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<p>New user? <%= link_to "Sign up now!", new_user_path %></p>
-<% end %>
+  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+</div>
+

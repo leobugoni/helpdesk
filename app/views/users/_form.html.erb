@@ -1,33 +1,46 @@
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert-error">
-     O formulário contém <%= pluralize(@user.errors.count, "erro") %>.
-    </div>
-    <ul>
-     <% @user.errors.full_messages.each do |msg| %>
-     <li><%= msg %></li>
-     <% end %>
-    </ul>
+<div class="container-fluid row">
+  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>  
+  <div class="col-sm-4 col-md-4 col-lg-4">
+    <%= form_for @user do |f| %>
+      <div class="field">
+        <div class="col-sm-12 col-md-12 col-lg-12 ">&nbsp;</div>        
+        <%= f.label :nome, class: "control-label"%>
+        <%= f.text_field :nome, class: "form-control"%>
+      </div>
+      <div class="field">
+        <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>        
+        <%= f.label :email, class: "control-label" %>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+      <div class="field">
+        <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>        
+        <%= f.label :password, class: "control-label" %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <div class="field">
+        <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>        
+        <%= f.label :password_confirmation, class: "control-label" %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+      <div class="actions">
+        <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>        
+        <%= f.submit "Cadastrar", class: "btn btn-success"%>
+      </div>
+    <% end %>
+    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div> 
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <ul class="list-group">
+         <% @user.errors.full_messages.each do |msg| %>
+         <li class="list-group-item list-group-item-danger"><%= msg %></li>
+         <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
-<% end %>
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Cadastrar"%>
-  </div>
-<% end %>
+  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+</div>
+
+
+
+

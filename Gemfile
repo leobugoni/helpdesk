@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'execjs', '>= 0.0.0'
 gem 'therubyracer', '>= 0.0.0'
 gem 'bcrypt', '>= 0.0.0'
+gem 'bootstrap', '~> 4.1.1'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

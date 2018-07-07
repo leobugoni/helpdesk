@@ -2,7 +2,7 @@
   <div class="col-sm-12 col-md-12 col-lg-12 text-center">
     <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
     <div class="col-sm-4 col-md-4 col-lg-4">
-      <h2>Listing users</h2>
+      <h2>Listing contacts</h2>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>  
   </div>
@@ -11,22 +11,23 @@
     <table class="table">
       <tr>
         <th>Nome</th>
-        <th>E-mail</th>
+        <th>Telefone</th>
         <th>Operações</th>
       </tr>
-      <% @users.each do |user| %>
+      <% @contatos.each do |contato| %>
         <tr>
-          <td><%= user.nome %></td>
-          <td><%= user.email %></td>
-          <td><%= link_to 'Show', user, class: "btn btn-light" %></td>
+          <td><%= contato.nome %></td>
+          <td><%= contato.telefone %></td>
+          <td>
+            <div class="member_action">
+              <%= link_to 'Edit', contatos_edit_path(contato), class: "btn btn-light" %>
+              <%= link_to "Destroy", @contato, method: :delete, class: "btn btn-light"%>  
+            </div>
+          </td>
         </tr>
       <% end %>
     </table>
-    <%= link_to 'New User', new_user_path, class: "btn btn-success" %>
+    <%= link_to 'New Contact', contatos_new_path, class: "btn btn-success" %>
   </div>
   <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
 </div>
-
-
-
-
