@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         sign_in(@user)
         redirect_to current_user
       else
-       render action: :new
+        redirect_to root_url, notice: 'Incorrect e-mail or password.'
       end
     end
   def destroy

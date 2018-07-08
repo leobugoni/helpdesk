@@ -1,18 +1,8 @@
+//= require material_icons
 @import "bootstrap";
 
-
-.green {
-	background: green;
-}
-
-.blue {
-	background: blue;
-}
-
-.yellow {
-	background: yellow;
-}
-
-.red {
-	background: red;
+.icon {
+  position: relative;
+  top: 3px;
+  left: 3px;
 }

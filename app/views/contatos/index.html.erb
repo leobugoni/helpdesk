@@ -3,20 +3,24 @@
   <div class="col-sm-4 col-md-4 col-lg-4">
     <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
     <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-      <h2>Listing users</h2>
+      <h2>Listing contacts</h2>
     </div>
     <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
     <table class="table">
       <tr>
         <th>Nome</th>
-        <th>E-mail</th>
+        <th>Telefone</th>
         <th>Operações</th>
       </tr>
-      <% @users.each do |user| %>
+      <% @contatos.each do |contato| %>
         <tr>
-          <td><%= user.nome %></td>
-          <td><%= user.email %></td>
-          <td><%= link_to '<i class="icon material-icons md-18">visibility</i> Show'.html_safe, user, class: "btn btn-light" %></td>
+          <td><%= contato.nome %></td>
+          <td><%= contato.telefone %></td>
+          <td>
+            <div class="member_action">
+              <%= link_to '<i class="icon material-icons md-18">visibility</i> Show'.html_safe, contato, class: "btn btn-light" %>
+            </div>
+          </td>
         </tr>
       <% end %>
     </table>
@@ -24,7 +28,7 @@
     <% if notice %>
       <div class="col-sm-12 col-md-12 col-lg-12 alert alert-info" role="alert"><p id="notice"><%= notice%></p></div>
     <%end%>
-    <%= link_to '<i class="icon material-icons md-18">add</i> New User'.html_safe, new_user_path, class: "btn btn-success" %>
+    <%= link_to '<i class="icon material-icons md-18">add</i> New Contact'.html_safe, new_contato_path, class: "btn btn-success" %>
   </div>
   <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
 </div>

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
   	if @user.save
 			sign_in(@user)
-      redirect_to @user
+      redirect_to users_url, notice: 'User was successfully created.'
     else 
 			render action: :new
     end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id]) 
     if @user.update_attributes(user_params)
-      redirect_to users_path
+      redirect_to users_path, notice: 'User was successfully updated.'
     else
       render action: :edit
     end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id]) 
     @user.destroy
     sign_out
-    redirect_to root_path
+    redirect_to root_path,  notice: 'User was successfully destroyed.'
   end
 
   def show

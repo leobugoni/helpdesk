@@ -1,7 +1,7 @@
 <div class="container-fluid row">
   <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>  
   <div class="col-sm-4 col-md-4 col-lg-4">
-    <%= form_for @contato, url: {action: "create"} do |form| %>
+    <%= form_with(model: contato, local: true) do |form| %>
       <div class="field">
         <div class="col-sm-12 col-md-12 col-lg-12 ">&nbsp;</div>   
         <%= form.label :nome, class: "control-label"%>
@@ -14,7 +14,10 @@
       </div>
       <div class="actions">
         <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div> 
-        <%= form.submit "Cadastrar", class: "btn btn-success"%>
+        <%= button_tag(type: 'submit', class: "btn btn-success") do %>
+          <i class="icon material-icons md-18">save</i> Save
+        <% end %>
+        <%= link_to '<span class="btn btn-light"><i class="material-icons md-18">reply</i> Back</span>'.html_safe, contatos_path %>
       </div>
     <% end %>
     <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div> 
@@ -30,3 +33,4 @@
   </div>
   <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
 </div>
+
