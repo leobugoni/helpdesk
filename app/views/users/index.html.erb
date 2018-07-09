@@ -1,30 +1,42 @@
-<div class="container-fluid row">
-  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
-  <div class="col-sm-4 col-md-4 col-lg-4">
-    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
-    <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-      <h2>Listing users</h2>
-    </div>
-    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
-    <table class="table">
-      <tr>
-        <th>Nome</th>
-        <th>E-mail</th>
-        <th>Operações</th>
-      </tr>
-      <% @users.each do |user| %>
+<% if logged_in? %>
+  <div class="container-fluid row">
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <h2>Listing users</h2>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+      <table class="table">
         <tr>
-          <td><%= user.nome %></td>
-          <td><%= user.email %></td>
-          <td><%= link_to '<i class="icon material-icons md-18">visibility</i> Show'.html_safe, user, class: "btn btn-light" %></td>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Operações</th>
         </tr>
-      <% end %>
-    </table>
-    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
-    <% if notice %>
-      <div class="col-sm-12 col-md-12 col-lg-12 alert alert-info" role="alert"><p id="notice"><%= notice%></p></div>
-    <%end%>
-    <%= link_to '<i class="icon material-icons md-18">add</i> New User'.html_safe, new_user_path, class: "btn btn-success" %>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.nome %></td>
+            <td><%= user.email %></td>
+            <td><%= link_to '<i class="icon material-icons md-18">visibility</i> Show'.html_safe, user, class: "btn btn-light" %></td>
+          </tr>
+        <% end %>
+      </table>
+      <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+      <% if notice %>
+        <div class="col-sm-12 col-md-12 col-lg-12 alert alert-info" role="alert"><p id="notice"><%= notice%></p></div>
+      <%end%>
+      <%= link_to '<i class="icon material-icons md-18">add</i> New User'.html_safe, new_user_path, class: "btn btn-success" %>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
   </div>
-  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
-</div>
+<% else %>
+  <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+  <div class="col-sm-12 col-md-12 col-lg-12 row ">
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert"><p id="notice">Access denied</p></div>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+  </div>
+<% end %>
+

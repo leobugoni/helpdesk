@@ -1,38 +1,50 @@
-<div class="container-fluid row">
-  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
-  <div class="col-sm-4 col-md-4 col-lg-4">
-  	<div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
-  	<div class="col-sm-12 col-md-12 col-lg-12 text-center">
-      <h2>Profile from <%= @user.nome %></h2>
-    </div>
-    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
-    <table class="table">
-      <tr>
-        <th>Nome</th>
-        <th>E-mail</th>
-        <th>Operações</th>
-      </tr>
+<% if logged_in? %>
+  <div class="container-fluid row">
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+    	<div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+    	<div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <h2>Profile from <%= @user.nome %></h2>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+      <table class="table">
         <tr>
-          <td><%= @user.nome %></td>
-          <td><%= @user.email %></td>
-          <td>
-						<div class="member_action">
-							<% if current_user == @user %>
-								<%= link_to '<i class="icon material-icons md-18">edit</i> Edit'.html_safe, edit_user_path(@user), class: "btn btn-light" %>
-								<%= link_to '<i class="icon material-icons md-18">delete</i> Delete'.html_safe, @user, method: :delete, class: "btn btn-light" %>
-              <%end%>	
-            </div>
-          </td>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Operações</th>
         </tr>
-    </table>
-    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
-    <% if notice %>
-      <div class="col-sm-12 col-md-12 col-lg-12 alert alert-info" role="alert"><p id="notice"><%= notice%></p></div>
-    <%end%>
-    <div class="text-left">
-			<%= link_to '<span class="btn btn-light"><i class="material-icons md-18">reply</i> Back</span>'.html_safe, users_path %>
+          <tr>
+            <td><%= @user.nome %></td>
+            <td><%= @user.email %></td>
+            <td>
+  						<div class="member_action">
+  							<% if current_user == @user %>
+  								<%= link_to '<i class="icon material-icons md-18">edit</i> Edit'.html_safe, edit_user_path(@user), class: "btn btn-light" %>
+  								<%= link_to '<i class="icon material-icons md-18">delete</i> Delete'.html_safe, @user, method: :delete, class: "btn btn-light" %>
+                <%end%>	
+              </div>
+            </td>
+          </tr>
+      </table>
+      <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+      <% if notice %>
+        <div class="col-sm-12 col-md-12 col-lg-12 alert alert-info" role="alert"><p id="notice"><%= notice%></p></div>
+      <%end%>
+      <div class="text-left">
+  			<%= link_to '<span class="btn btn-light"><i class="material-icons md-18">reply</i> Back</span>'.html_safe, users_path %>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
   </div>
-  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
-</div>
+<% else %>
+  <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+  <div class="col-sm-12 col-md-12 col-lg-12 row ">
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert"><p id="notice">Access denied</p></div>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+  </div>
+<% end %>
+

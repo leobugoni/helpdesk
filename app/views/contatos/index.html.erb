@@ -1,34 +1,46 @@
-<div class="container-fluid row">
-  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
-  <div class="col-sm-4 col-md-4 col-lg-4">
-    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
-    <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-      <h2>Listing contacts</h2>
-    </div>
-    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
-    <table class="table">
-      <tr>
-        <th>Nome</th>
-        <th>Telefone</th>
-        <th>Operações</th>
-      </tr>
-      <% @contatos.each do |contato| %>
+<% if logged_in? %>
+  <div class="container-fluid row">
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <h2>Listing contacts</h2>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+      <table class="table">
         <tr>
-          <td><%= contato.nome %></td>
-          <td><%= contato.telefone %></td>
-          <td>
-            <div class="member_action">
-              <%= link_to '<i class="icon material-icons md-18">visibility</i> Show'.html_safe, contato, class: "btn btn-light" %>
-            </div>
-          </td>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>Operações</th>
         </tr>
-      <% end %>
-    </table>
-    <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
-    <% if notice %>
-      <div class="col-sm-12 col-md-12 col-lg-12 alert alert-info" role="alert"><p id="notice"><%= notice%></p></div>
-    <%end%>
-    <%= link_to '<i class="icon material-icons md-18">add</i> New Contact'.html_safe, new_contato_path, class: "btn btn-success" %>
+        <% @contatos.each do |contato| %>
+          <tr>
+            <td><%= contato.nome %></td>
+            <td><%= contato.telefone %></td>
+            <td>
+              <div class="member_action">
+                <%= link_to '<i class="icon material-icons md-18">visibility</i> Show'.html_safe, contato, class: "btn btn-light" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      <%= paginate @contatos %>
+      <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+      <% if notice %>
+        <div class="col-sm-12 col-md-12 col-lg-12 alert alert-info" role="alert"><p id="notice"><%= notice%></p></div>
+      <%end%>
+      <%= link_to '<i class="icon material-icons md-18">add</i> New Contact'.html_safe, new_contato_path, class: "btn btn-success" %>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
   </div>
-  <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
-</div>
+<% else %>
+  <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
+  <div class="col-sm-12 col-md-12 col-lg-12 row ">
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="col-sm-12 col-md-12 col-lg-12 alert alert-danger" role="alert"><p id="notice">Access denied</p></div>
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">&nbsp;</div>
+  </div>
+<% end %>

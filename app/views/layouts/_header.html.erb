@@ -1,7 +1,11 @@
 <header>
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#"><i class="icon material-icons md-18">extension</i> HelpDesk</a>
+      <% if logged_in? %>
+        <%= link_to '<i class="icon material-icons md-18">extension</i> HelpDesk'.html_safe, current_user, class: "navbar-brand" %>
+      <% else %>
+        <%= link_to '<i class="icon material-icons md-18">extension</i> HelpDesk'.html_safe, root_path, class: "navbar-brand" %>
+      <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
