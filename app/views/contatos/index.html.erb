@@ -25,7 +25,9 @@
           </tr>
         <% end %>
       </table>
-      <%= paginate @contatos %>
+      <div class="text-center col-sm-12 col-md-12 col-lg-12">
+        <%= paginate @contatos %>
+      </div>
       <div class="col-sm-12 col-md-12 col-lg-12">&nbsp;</div>
       <% if notice %>
         <div class="col-sm-12 col-md-12 col-lg-12 alert alert-info" role="alert"><p id="notice"><%= notice%></p></div>
