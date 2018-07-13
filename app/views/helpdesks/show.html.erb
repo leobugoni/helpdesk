@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cachorro:</strong>
+  <%= @helpdesk.cachorro %>
+</p>
+
+<p>
+  <strong>Id seq:</strong>
+  <%= @helpdesk.id_seq %>
+</p>
+
+<p>
+  <strong>Gato:</strong>
+  <%= @helpdesk.gato %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @helpdesk.valor %>
+</p>
+
+<%= link_to 'Edit', edit_helpdesk_path(@helpdesk) %> |
+<%= link_to 'Back', helpdesks_path %>

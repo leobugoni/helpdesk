@@ -1,0 +1,2 @@
+class Helpdesk < ApplicationRecord
+end

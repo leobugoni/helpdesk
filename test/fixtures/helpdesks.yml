@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cachorro: MyString
+  id_seq: MyString
+  gato: MyText
+  valor: 9.99
+
+two:
+  cachorro: MyString
+  id_seq: MyString
+  gato: MyText
+  valor: 9.99

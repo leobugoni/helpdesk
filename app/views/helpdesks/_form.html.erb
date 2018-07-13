@@ -1,0 +1,37 @@
+<%= form_with(model: helpdesk, local: true) do |form| %>
+  <% if helpdesk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(helpdesk.errors.count, "error") %> prohibited this helpdesk from being saved:</h2>
+
+      <ul>
+      <% helpdesk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cachorro %>
+    <%= form.text_field :cachorro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :id_seq %>
+    <%= form.text_field :id_seq %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gato %>
+    <%= form.text_area :gato %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valor %>
+    <%= form.text_field :valor %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

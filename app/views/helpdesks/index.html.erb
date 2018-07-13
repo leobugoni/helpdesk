@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Helpdesks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cachorro</th>
+      <th>Id seq</th>
+      <th>Gato</th>
+      <th>Valor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @helpdesks.each do |helpdesk| %>
+      <tr>
+        <td><%= helpdesk.cachorro %></td>
+        <td><%= helpdesk.id_seq %></td>
+        <td><%= helpdesk.gato %></td>
+        <td><%= helpdesk.valor %></td>
+        <td><%= link_to 'Show', helpdesk %></td>
+        <td><%= link_to 'Edit', edit_helpdesk_path(helpdesk) %></td>
+        <td><%= link_to 'Destroy', helpdesk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Helpdesk', new_helpdesk_path %>
