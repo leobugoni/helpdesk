@@ -3,10 +3,8 @@ rvm:
   - 2.5.1
 env:
   - DB=mysql
-script: 
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/
-before_script:
-  - mysql -e 'create database helpdesk'
-bundler_args: --binstubs=./bundler_stubs
+script:
+  - bundle install
+  - rake db:create:all
+  - rake db:migrate
+
