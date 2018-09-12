@@ -81,7 +81,6 @@
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
   database: <%= ENV['HELPDESK-1_DATABASE_NAME'] %>
   username: <%= ENV['HELPDESK-1_DATABASE_USER'] %>
   password: <%= ENV['HELPDESK-1_DATABASE_PASSWORD'] %>
