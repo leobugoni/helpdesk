@@ -82,6 +82,6 @@ development:
 #
 production:
   <<: *default
-  database: helpdesk-1_production
-  username: helpdesk-1
+  database: <%= ENV['HELPDESK-1_DATABASE_NAME'] %>
+  username: <%= ENV['HELPDESK-1_DATABASE_USER'] %>
   password: <%= ENV['HELPDESK-1_DATABASE_PASSWORD'] %>
