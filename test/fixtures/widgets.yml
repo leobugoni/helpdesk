@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nome: MyString
-  telefone: MyString
+  name: MyString
+  description: MyText
+  stock: 1
 
 two:
-  nome: MyString
-  telefone: MyString
+  name: MyString
+  description: MyText
+  stock: 1

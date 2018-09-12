@@ -1,4 +1,4 @@
-class CreateHelpdesks < ActiveRecord::Migration[5.2]
+class CreateHelpdesks < ActiveRecord::Migration[5.1]
   def change
     create_table :helpdesks do |t|
       t.string :cachorro
